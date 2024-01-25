@@ -381,4 +381,22 @@ aws ec2 associate-address --instance-id $INSTANCE_ID_frontend1 --public-ip $ELAS
 ```
 Anteriormente, se almacenó el id de instancia en la variable **$INSTANCE_ID_frontend1** y hemos asignado a la siguiente variable una ip flotante $ELASTIC_IP_f1 con esto comando, empleando la sintaxis perteneciente al comando associate-address asociamos esa ip almacenada en la variable al id de esa instancia.
 
-# Comprobaciones
+# Métodos de ejecución.
+Ejecución de los script, si los ejecutáis con sudo dara errores... ejecutarlo solamente con ``./nombre_script.sh``.
+
+**1º** Ejecución del script grupos_seguridad.sh
+```
+./grupos_seguridad.sh
+```
+
+**2º** Ejecución del script creacion_instancias.sh
+```
+./creacion_instancias.sh
+```
+
+**2º** Ejecución del script ip_flotantes.sh
+```
+./ip_flotantes.sh
+```
+
+Cabe destacar que esto se tiene que hacer en la ruta donde se encuentren dichos scripts...

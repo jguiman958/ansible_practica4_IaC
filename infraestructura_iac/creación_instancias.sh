@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
 set -x
 
 # Deshabilitamos la paginación de la salida de los comandos de AWS CLI

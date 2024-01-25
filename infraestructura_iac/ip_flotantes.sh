@@ -10,7 +10,7 @@ source .env
 
 # Obtenemos el Id de la instancia a partir de su nombre.
 # Recoger el id de la instancia del frontend 1.
-INSTANCE_ID_frontend1=$(aws ec2 describe-instances \
+INSTANCE_ ID_frontend1=$(aws ec2 describe-instances \
             --filters "Name=tag:Name,Values=$INSTANCE_NAME_FRONTEND_1" \
                       "Name=instance-state-name,Values=running" \
             --query "Reservations[*].Instances[*].InstanceId" \

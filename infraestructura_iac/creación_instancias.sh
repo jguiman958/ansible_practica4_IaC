@@ -16,8 +16,8 @@ aws ec2 run-instances \
     --count $COUNT \
     --instance-type $INSTANCE_TYPE \
     --key-name $KEY_NAME \
-    --security-groups $SECURITY_GROUP_FRONTEND \
-    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_NAME_FRONTEND_1}]"
+    --security-groups $SECURITY_GROUP_LOADBALANCER \
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_NAME_LOADBALANCER}]"
 
 # Creamos las intancias EC2 para los frontends 1 y 2.
 aws ec2 run-instances \
@@ -26,7 +26,7 @@ aws ec2 run-instances \
     --instance-type $INSTANCE_TYPE \
     --key-name $KEY_NAME \
     --security-groups $SECURITY_GROUP_FRONTEND \
-    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_NAME_FRONTEND_2}]"
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_NAME_FRONTEND_1}]"
 
 aws ec2 run-instances \
     --image-id $AMI_ID \
@@ -55,12 +55,3 @@ aws ec2 run-instances \
     --security-groups $SECURITY_GROUP_NFS \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_NAME_NFS}]"
 
-# Creamos una instancia EC2 para el BALANCEADOR DE CARGA.
-
-aws ec2 run-instances \
-    --image-id $AMI_ID \
-    --count $COUNT \
-    --instance-type $INSTANCE_TYPE \
-    --key-name $KEY_NAME \
-    --security-groups $SECURITY_GROUP_LOADBALANCER \
-    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_NAME_LOADBALANCER}]"
